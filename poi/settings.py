@@ -14,8 +14,8 @@ NEWSPIDER_MODULE = 'poi.spiders'
 # SCHEDULER_IDLE_BEFORE_CLOSE = 10
 
 ITEM_PIPELINES = {
-    'poi.pipelines.MySQLPipeline': 500,
-    # 'poi.pipelines.JSONPipeline': 500,
+    # 'poi.pipelines.MySQLPipeline': 500,
+    'poi.pipelines.JSONPipeline': 500,
 }
 
 EXTENSIONS = {
