@@ -1,0 +1,40 @@
+# Basic configs.
+max_worker: 16
+
+# Server configs.
+db:
+  host: localhost
+  user: root
+  password: '123456'
+  database: poi
+
+beanstalk:
+  ip: 125.211.198.186
+  port: 11300
+
+# logging configs.
+version: 1
+formatters:
+  simple:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  file:
+    class: logging.handlers.TimedRotatingFileHandler
+    level: DEBUG
+    formatter: simple
+    filename: 'log/log'
+    when: D
+    interval: 1
+    backupCount: 10
+
+root:
+  level: DEBUG
+  handlers:
+    - console
+    - file
