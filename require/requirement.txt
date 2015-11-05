@@ -1,0 +1,4 @@
+scrapy
+pyyaml
+beautifulsoup4
+requests
