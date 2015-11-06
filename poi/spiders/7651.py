@@ -219,11 +219,11 @@ class _7651Spider(Spider):
         if height.strip()!=u'保密': item['height'] = height
         # ["0,不限","3,高中及以下","4,大专","5,大学本科","6,硕士","7,博士"]
         education_level = {
-            u'高中及以下':u'3',
-            u'大专':u'4',
-            u'大学本科':u'5',
-            u'硕士':u'6',
-            u'博士':u'7',
+            u'高中及以下':u'1',
+            u'大专':u'2',
+            u'大学本科':u'4',
+            u'硕士':u'5',
+            u'博士':u'6',
         }
         try:
             r = self.getAttr(re.findall(r'userdetail.*?\((.*?)\)', info[1].extract())[0])
