@@ -26,6 +26,9 @@ class HongniangSpider(Spider):
             item['user_id'] = str(response.meta['user_id'])
         except:
             return
+
+        item['gender'] = 'M' if u'男' in html else 'F'
+
         try: 
             item['hometown'] = re.findall(ur'>(.*?)</a></strong>人', html)[0] 
         except: 
@@ -71,10 +74,10 @@ class HongniangSpider(Spider):
         try: 
             education_level = {
             u'初中':u'1',
-            u'中专/职高/技校':u'3',
-            u'高中':u'1',
-            u'大专以下':u'1',
-            u'大专':u'2',
+            u'中专/职高/技校':u'2',
+            u'高中/中专':u'2',
+            u'大专以下':u'2',
+            u'大专':u'3',
             u'本科':u'4',
             u'硕士':u'5',
             u'博士':u'6',
