@@ -10,7 +10,7 @@ class IzhenxinSpider(Spider):
     allow_domains = ['www.izhenxin.com']
 
     def start_requests(self):
-        for i in xrange(531700000, 531800000):
+        for i in xrange(531700000, 531800000, 10):
             yield  Request('http://www.izhenxin.com/user/getUserInfo/?oid=' + str(i),
                 callback=self.parse_item,
                 meta={'user_id': i})
@@ -42,14 +42,14 @@ class IzhenxinSpider(Spider):
         education_level = {
             u'初中':u'1',
             u'中专/职高/技校':u'2',
-            u'高中':u'1',
-            u'大专以下':u'1',
+            u'高中/中专':u'2',
+            u'大专以下':u'2',
             u'大专':u'3',
             u'本科':u'4',
             u'硕士':u'5',
             u'博士':u'6',
             u'博士后':u'6',
         }
-        # print j['education']
+        print j['education']
         item['education_level'] = education_level[j['education'].strip()]
         return item
